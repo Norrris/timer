@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="myText" placeholder="Enter the Process">
+<button onclick="myFunction()">Proceed</button>
+<p id="demo"></p>
+<input type="button" name="btn" id='btn' value="Start" onclick="clock.start";>
+<input type="button" name="btn1" id='btn1' value="Stop" onclick="clock.stop";>
+<div id=n1 style="z-index: 2; position: relative; right: 0px; top: 10px; background-color: black;
+ width: 100px; padding: 10px; color: white; font-size:20px; border: "NULL"> </div>
+
+
+<script language=javascript>
+var h=0;
+var m=0;
+var s=0;
+
+function clock (start) {
+	this.start=window.setInterval('disp()',1000);
+	this.stop=function() {
+		window.clearInterval(this.start);
+	};
+}
+
+
+function myFunction() {
+	var c= new clock();
+    var x = document.getElementById("myText").value;
+    document.getElementById("demo").innerHTML = x;
+}
+/*function to_start(){
+tm=window.setInterval('disp()',1000);
+}
+
+function to_stop(){
+	window.clearInterval(tm);
+}*/
+
+
+
+
+
+
+function disp(){
+if(s<10){var s1='0' + s;}
+else{var s1=s;}
+if(m<10){var m1='0' + m;}
+else{var m1=m;}
+if(h<10){var h1='0' + h;}
+else{var h1=h;}
+str= h1 + ':' + m1 +':' + s1 ;
+document.getElementById('n1').innerHTML=str;
+if(s<59){ 
+s=s+1;
+}else{
+s=0;
+m=m+1;
+if(m==60){
+m=0;
+h=h+1;
+} 
+}
+
+}
+</script>
+</body>
+</html>
